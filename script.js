@@ -24,7 +24,17 @@ function initializeApplicationData() {
           doctor: "رانية محمد عثمان ابوشنب ",
           title: "طب بشري ",
           date: "2026-02-01"
-        },
+        },{
+    leaveCode: "GSL556444993423",
+          idNumber: "1128867639",
+          name:"خليل امين محمد عبده ",
+          from: "2026-02-01",
+          to: "2026-02-01",
+          days: "1",
+          doctor: "رانية محمد عثمان ابوشنب ",
+          title: "طب بشري ",
+          date: "2026-02-01"
+            }, 
         {
           leaveCode: "GSL556497993423",
           idNumber: "1124867639",
