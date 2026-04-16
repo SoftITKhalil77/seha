@@ -24,7 +24,19 @@ function initializeApplicationData() {
           doctor: "رانية محمد عثمان ابوشنب ",
           title: "طب بشري ",
           date: "2026-02-01"
-        },{
+        },
+    {
+  leaveCode: "GSL837492615284",
+  idNumber: "1120048744",
+  name: "اسامه علي عبداللة",
+  from: "2026-04-15",
+  to: "2026-07-17",
+  days: "3",
+  doctor: "سعيد محمد قاسم",
+  title: "طبيب جراحه",
+  date: "2026-04-17"
+    }, 
+    {
     leaveCode: "GSL556444993423",
           idNumber: "1128867639",
           name:"خليل امين محمد عبده ",
