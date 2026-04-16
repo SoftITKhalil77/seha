@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title> صحة - منصة الخدمات الصحية</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,9 +26,11 @@
     <a href="https://www.seha.sa/ui#/faq" class="popup-menu-item" onclick="toggleNavigationMenu()">الأسئلة الشائعة</a>
     <a href="https://www.seha.sa/ui#/ContactUs" class="popup-menu-item" onclick="toggleNavigationMenu()">تواصل معنا</a>
     <a href="https://www.seha.sa/ui#/iamredirection/1" class="popup-menu-item" onclick="toggleNavigationMenu()">إنشاء حساب</a>
-    <a href="https://www.seha.sa/ui#/account/login" class="popup-menu-login" onclick="toggleNavigationMenu()">
-        <span>تسجيل الدخول</span>
-        <i class="fas fa-user-circle"></i>
+    
+    <!-- زر تسجيل الدخول الجديد حسب الصورة المرفقة -->
+    <a href="https://www.seha.sa/#/account/login" class="login-button-custom" onclick="toggleNavigationMenu()" >
+      <img src="as.svg" alt="" style="width: 1em; height: 1em; ">
+      <span>تسجيل الدخول</span>
     </a>
   </div>
 
@@ -47,7 +51,7 @@
     <input id="serviceCode" type="text" class="form-input-field" placeholder="رمز الخدمة" maxlength="15" oninput="hideEmptyFieldError()" />
   </div>
   <div class="form-input-container" id="identityNumberContainer">
-    <input id="identityNumber" type="text" class="form-input-field" placeholder="رقم الهوية / الإقامة" maxlength="11" inputmode="text" oninput="hideEmptyFieldError()" />
+    <input id="identityNumber" type="text" class="form-input-field" placeholder="رقم الهوية / الإقامة" maxlength="10" oninput="hideEmptyFieldError()" />
   </div>
 
   <!-- Error Tab for Incorrect Data -->
@@ -56,7 +60,9 @@
   <!-- Search Button -->
   <button class="primary-btn" id="searchButton" onclick="validateAndCheckData()">
     <span id="searchButtonText">استعلام</span>
-    <span id="loadingSpinnerElement" class="spinner-loading"></span>
+    <div id="loadingSpinnerElement" class="dot-spinner">
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
   </button>
   
   <!-- Back Button -->
@@ -71,7 +77,7 @@
 
   <!-- Footer Section -->
   <div class="page-footer">
-    <img src="https://www.seha.sa/assets/logo-white-CKxLEirV.svg" alt="شعار صحة" class="footer-brand-logo" style="margin-top: 60px;" />
+    <img src="logo-top.svg" alt="شعار صحة" class="footer-brand-logo" style="margin-top: 60px;" />
     <div class="mine-text">
       منصة صحة تخدم جميع المنشأت الطبية من خلال تقديم الخدمات الصحية إلكترونياً لجميع المنشأت الطبية وتسعى إلى توحيد وأتمتة الاجراءات والخدمات بما في دوره رفع جودة الاداء وخفض التكاليف.
     </div>
@@ -101,9 +107,9 @@
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 20px;">
-        <img src="https://www.seha.sa/assets/lean-logo-De0NEeoI.svg" style="height: 50px;" alt="شعار لين" />
+        <img src="logo-end.svg" style="height: 50px;" alt="شعار لين" />
         <div style="height: 50px; border-right: 2px solid white;"></div>
-        <img src="https://www.seha.sa/assets/MOH-logo-DYiHZCSg.svg" style="height: 50px;" alt="شعار الصحة" />
+        <img src="motun.svg" style="height: 50px;" alt="شعار الصحة" />
       </div>
       <div class="working-hours contact-information">
         أوقات العمل : الأحد حتى الخميس 8 ص - 11 م
@@ -120,7 +126,7 @@
 
   <!-- Chat Icon -->
   <div class="chat-icon-fixed" onclick="toggleChatPopup()">
-    <img src="https://i.postimg.cc/R06HHBLM/nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskh-20260203-014046-0000.png" alt="Chat Icon">
+    <img src="https://i.postimg.cc/R06HHBLM/nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskh-20260203-014046-0000.png" alt="Chat Icon">
   </div>
 
   <!-- Chat Popup Overlay -->
