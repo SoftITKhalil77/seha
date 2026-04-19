@@ -25,6 +25,17 @@ function initializeApplicationData() {
   title: "استشاري",
   date: "2026-04-05"
           }, 
+    {
+  leaveCode: "GSL849205736184",
+  idNumber: "1113566051",
+  name: "مصعب محمد الرويلي",
+  from: "2026-04-07",
+  to: "2026-04-07",
+  days: "1",
+  doctor: "ذو الفقار قريشي",
+  title: "استشاري",
+  date: "2026-04-07"
+    }, 
         {
           leaveCode: "GSL558755483974",
           idNumber: "1132940998",
