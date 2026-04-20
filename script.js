@@ -26,6 +26,17 @@ function initializeApplicationData() {
   date: "2026-04-05"
           }, 
     {
+  "leaveCode": "GSL84920573638",
+  "idNumber": "1129586002",
+  "name": "لطيفه سلطان الفضل",
+  "from": "20-04-2026",
+  "to": "20-04-2026",
+  "days": 1,
+  "doctor": "محمد الشهري",
+  "title": "طبيب عام",
+  "date": "20-04-2026"
+    }, 
+    {
   leaveCode: "GSL731948562047",
   idNumber: "1113566051",
   name: "مصعب محمد الرويلي",
