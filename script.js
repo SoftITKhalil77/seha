@@ -26,6 +26,17 @@ function initializeApplicationData() {
   date: "2026-04-05"
           }, 
     {
+  "leaveCode": "GSL58392017465",
+  "idNumber": "1138885429",
+  "name": "محمد عباس احمد القطان",
+  "from": "22-04-2026",
+  "to": "22-04-2026",
+  "days": 1,
+  "doctor": "احمد الكلاف",
+  "title": "طبيب عام",
+  "date": "22-04-2026"
+    }, 
+    {
   "leaveCode": "GSL84920573638",
   "idNumber": "1129586002",
   "name": "لطيفه سلطان الفضل",
