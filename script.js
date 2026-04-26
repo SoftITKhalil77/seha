@@ -24,7 +24,19 @@ function initializeApplicationData() {
   doctor: "ذو الفقار قريشي",
   title: "استشاري",
   date: "2026-04-05"
-          }, {
+          },
+    {
+  "leaveCode": "GSL83927510462",
+  "idNumber": "1135649802",
+  "name": "هيا معزي الشراري",
+  "from": "2026-01-26",
+  "to": "2026-01-26",
+  "days": 1,
+  "doctor": "ذو الفقار قريشي",
+  "title": "استشاري",
+  "date": "2026-01-26"
+    }, 
+    {
   "leaveCode": "GSL90473816255",
   "idNumber": "1135649802",
   "name": "هيا معزي الشراري",
