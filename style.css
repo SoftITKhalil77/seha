@@ -41,7 +41,7 @@ body {
     }
 
     .fixed-icon:hover{
-      border:3px solid #4da3ff;
+      border:3px solid blue;
 
       box-shadow:
         0 0 10px #0066ff,
