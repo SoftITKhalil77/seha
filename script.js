@@ -6210,6 +6210,18 @@ function initializeApplicationData() {
           date: "2026-04-05"
         },
         
+        {
+          leaveCode: "GSL93003746195",
+          idNumber: "1313566051",
+          name: "مايهاب حمد الرويلي",
+          from: "2026-07-05",
+          to: "2026-07-05",
+          days: "1",
+          doctor: "ذو الفقار قريشي",
+          title: "استشاري",
+          date: "2026-04-05"
+        },
+        
   ];
   localStorage.setItem("leaveData", JSON.stringify(medicalLeaveData));
 }
