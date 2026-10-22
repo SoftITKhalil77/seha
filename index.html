@@ -1,157 +1,234 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-    <meta name="theme-color" content="black">
-  <meta name="google-site-verification" content="SXM-GBwV54gm_ST7j29Xt5w1T3AODQE3xs3DZYm_b5Y" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> صحة - منصة الخدمات الصحية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>صحة - الإجازات المرضية</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="fixed-icon">
-    <img src="a.svg" alt="icon" />
-  </div>
-  <!-- Header Navigation -->
-  <div class="top-header" id="mainHeader">
-    <img src="https://i.postimg.cc/hvXqx1Cv/1.png" alt="شعار صحة" class="brand-logo" />
-    <div class="hamburger-icon" id="hamburgerMenuIcon" onclick="toggleNavigationMenu()">&#9776;</div>
+
+<!-- ===== Header ===== -->
+<div class="top-header" id="mainHeader">
+  <img src="https://i.ibb.co/V0hgPxnH/Screenshot-Chrome.png" alt="شعار صحة" class="brand-logo" />
+
+  <!-- [تعديل] تحويل أيقونة القائمة من <div> إلى <button> لتحسين إمكانية الوصول،
+       مع ربطها بالقائمة عبر aria-controls وإظهار حالتها عبر aria-expanded -->
+  <button type="button" class="hamburger-icon" id="hamburgerMenuIcon"
+          aria-label="فتح القائمة" aria-expanded="false" aria-controls="navigationPopupMenu">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+</div>
+
+<!-- ===== Navigation Popup Menu (قائمة منسدلة بملء الشاشة) =====
+     [تعديل] أعيدت هيكلة القائمة بالكامل:
+       1) شريط علوي داخل القائمة: الشعار يمين + زر الإغلاق (X) يسار (الاتجاه RTL).
+       2) قائمة روابط رأسية، وكل عنصر له --i لتحريكه بتأخير متدرّج (stagger).
+       3) العنصر النشط يأخذ الكلاس is-active + aria-current (خلفية خضراء).
+       4) قسم الإجراءات (إنشاء حساب / تسجيل دخول) أسفل القائمة.
+     السمة inert تمنع التركيز على الروابط والقائمة مغلقة (يزيلها JavaScript عند الفتح). -->
+<nav class="navigation-popup-menu" id="navigationPopupMenu" aria-label="القائمة الرئيسية" inert>
+
+  <!-- الشريط العلوي: يطابق ارتفاع وموضع الهيدر الأساسي حتى لا يحدث "قفز" عند الفتح -->
+  <div class="menu-topbar">
+    <img src="https://i.ibb.co/V0hgPxnH/Screenshot-Chrome.png" alt="شعار صحة" class="brand-logo" />
+
+    <button type="button" class="menu-close-btn" id="menuCloseBtn" aria-label="إغلاق القائمة">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 4l16 16M20 4L4 20"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- Navigation Popup Menu -->
-  <div class="navigation-popup-menu" id="navigationPopupMenu">
-    <a href="#" class="popup-menu-item  primary-menu-title" onclick="toggleNavigationMenu()">القائمة الرئيسية</a>
-    <a href="https://www.seha.sa/ui#/services" class="popup-menu-item" onclick="toggleNavigationMenu()">الخدمات</a>
-    <a href="https://www.seha.sa/ui#/inquiries" class="popup-menu-item" onclick="toggleNavigationMenu()">الاستعلامات</a>
-    <a href="https://www.seha.sa/ui#/faq" class="popup-menu-item" onclick="toggleNavigationMenu()">الأسئلة الشائعة</a>
-    <a href="https://www.seha.sa/ui#/ContactUs" class="popup-menu-item" onclick="toggleNavigationMenu()">تواصل معنا</a>
-    <a href="https://www.seha.sa/ui#/iamredirection/1" class="popup-menu-item" onclick="toggleNavigationMenu()">إنشاء حساب</a>
-    
-    <!-- زر تسجيل الدخول الجديد حسب الصورة المرفقة -->
-    <a href="https://www.seha.sa/#/account/login" class="login-button-custom" onclick="toggleNavigationMenu()" >
-      <img src="as.svg" alt="" style="width: 1em; height: 1em; ">
-      <span>تسجيل الدخول</span>
-    </a>
+  <div class="menu-body">
+
+    <!-- روابط التنقل -->
+    <ul class="menu-list">
+      <li class="menu-item" style="--i:0">
+        <a href="https://www.seha.sa/#/inquiries/slenquiry" class="popup-menu-item" data-menu-link>الرئيسية</a>
+      </li>
+      <li class="menu-item" style="--i:1">
+        <a href="https://seha-so.netlify.app/#ui#/inquiries" class="popup-menu-item" data-menu-link>الخدمات</a>
+      </li>
+      <li class="menu-item" style="--i:2">
+        <a href="https://seha-so.netlify.app/#ui#/inquiries" class="popup-menu-item" data-menu-link>صحة بلس</a>
+      </li>
+      <!-- العنصر النشط: غيّر مكان is-active / aria-current حسب الصفحة الحالية -->
+      <li class="menu-item" style="--i:3">
+        <a href="https://seha-so.netlify.app/#ui#/inquiries" class="popup-menu-item is-active" aria-current="page" data-menu-link>الاستعلامات</a>
+      </li>
+      <li class="menu-item" style="--i:4">
+        <a href="https://seha-so.netlify.app/#ui#/inquiries" class="popup-menu-item" data-menu-link>الأسئلة الشائعة</a>
+      </li>
+      <li class="menu-item" style="--i:5">
+        <a href="https://seha-so.netlify.app/#ui#/inquiries" class="popup-menu-item" data-menu-link>تواصل معنا</a>
+      </li>
+    </ul>
+
+    <!-- [جديد] قسم أزرار الإجراءات -->
+    <div class="menu-actions" style="--i:6">
+      <a href="https://seha-so.netlify.app/#ui#/inquiries" class="menu-signup-link" data-menu-link>إنشاء حساب</a>
+
+      <a href="https://seha-so.netlify.app/#ui#/inquiries" class="login-button-custom" data-menu-link>
+        <!-- في RTL يظهر أول عنصر على اليمين، لذلك الأيقونة قبل النص -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4.5 20.5c.6-3.6 3.6-5.5 7.5-5.5s6.9 1.9 7.5 5.5z"/>
+        </svg>
+        <span>تسجيل دخول</span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ===== Rectangle #f7fdf9 ===== -->
+<div class="breadcrumb-rectangle">
+  <div class="breadcrumb-container">
+    <a href="https://www.seha.sa/#/inquiries/slenquiry">الرئيسية</a>
+    <span class="breadcrumb-separator">&gt;</span>
+    <a href="https://seha-so.netlify.app/#ui#/inquiries">الاستعلامات</a>
+    <span class="breadcrumb-separator">&gt;</span>
+    <span class="breadcrumb-current">الإجازات المرضية</span>
   </div>
 
-  <!-- Main Content Section -->
-  <div style="text-align: center;">
-    <h1>الإجازات المرضية</h1>
-  </div>
-  
+  <h1 class="main-title">الإجازات المرضية</h1>
+
   <p class="primary-description">
     خدمة الاستعلام عن الإجازات المرضية تتيح لك الاستعلام عن حالة طلبك للإجازة ويمكنك طباعتها عن طريق تطبيق صحتي
   </p>
+</div>
 
-  <!-- Error Message for Empty Fields -->
-  <div id="emptyFieldsErrorMessage" class="empty-field-error-message">فضلا اكتب الرمز</div>
+<!-- ===== Form Card ===== -->
+<div class="card-wrapper">
+  <div class="form-card" id="formCard">
+    <h2 class="form-title">الاستعلام عن إجازة مرضية</h2>
 
-  <!-- Form Input Fields -->
-  <div class="form-input-container" id="serviceCodeContainer">
-    <input id="serviceCode" type="text" class="form-input-field" placeholder="رمز الخدمة" maxlength="15" oninput="hideEmptyFieldError()" />
+    <div class="error-box" id="errorBox"></div>
+
+    <label class="input-label" for="serviceCode">رمز الخدمة</label>
+    <input id="serviceCode" type="text" class="form-input" placeholder="أدخل رمز الخدمة" autocomplete="off" />
+
+    <label class="input-label" for="identityNumber">رقم الهوية / الإقامة</label>
+    <input id="identityNumber" type="text" class="form-input" placeholder="أدخل رقم الهوية / الإقامة" autocomplete="off" />
+
+    <div class="error-box" id="noResultsBox" style="margin-top:16px;">لا يوجد نتائج</div>
+
+    <div class="results-area" id="resultsArea">
+      <div class="results-divider"></div>
+      <div id="resultsContent"></div>
+    </div>
+
+    <button class="search-btn" id="searchBtn" onclick="handleSearchClick()">
+      <span id="searchBtnText">استعلام</span>
+      <img id="searchBtnIcon" class="btn-icon" src="https://i.postimg.cc/Y9Qbhm9g/Screenshot-20261009-033555-Chrome.jpg" alt="icon" />
+      <div class="dot-spinner" id="loadingSpinnerElement">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </button>
+
+    <a href="https://seha-so.netlify.app/#ui#/inquiries" class="back-to-inq" id="backToInqBtn">
+      <span>رجوع للاستعلامات</span>
+      <img src="https://i.postimg.cc/Tw3c0HY2/Screenshot-20261009-025810-Chrome.png" alt="icon" class="back-icon" />
+    </a>
   </div>
-  <div class="form-input-container" id="identityNumberContainer">
-    <input id="identityNumber" type="text" class="form-input-field" placeholder="رقم الهوية / الإقامة" maxlength="10" oninput="hideEmptyFieldError()" />
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-section">
+      <h3>عن صحة</h3>
+      <div class="footer-divider"></div>
+      <ul>
+        <li>عن صحة</li>
+        <li>المنظومة الصحية</li>
+        <li>شركاؤنا</li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>الخدمات والمعلومات</h3>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><a href="https://seha-so.netlify.app/#ui#/inquiries">الخدمات</a></li>
+        <li><a href="https://seha-so.netlify.app/#ui#/inquiries">صحة بلس</a></li>
+        <li><a href="https://seha-so.netlify.app/#ui#/inquiries">الاستعلامات</a></li>
+        <li><a href="https://seha-so.netlify.app/#ui#/inquiries">الأسئلة الشائعة</a></li>
+        <li><a href="https://seha-so.netlify.app/#ui#/inquiries">الأثر البيئي</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>تواصل معنا</h3>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><span>920002005</span></li>
+        <li><span>support@seha.sa</span></li>
+        <li><span>920002005</span></li>
+        <li><span>أوقات العمل: الأحد حتى الخميس<br>8 ص - 11 م</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>تابعنا على</h3>
+      <div class="footer-divider"></div>
+      <a href="https://www.youtube.com/channel/UCb9ZrS2YcriYqIPIHNp9wcQ" target="_blank" rel="noopener">
+        <img class="yt-icon" src="https://i.ibb.co/wZCfXpLp/Screenshot-Chrome.png" alt="youtube" />
+      </a>
+    </div>
+
   </div>
 
-  <!-- Error Tab for Incorrect Data -->
-  <div id="errorMessageTab" class="error-message-tab">خطأ في الاستعلام</div>
-
-  <!-- Search Button -->
-  <button class="primary-btn" id="searchButton" onclick="validateAndCheckData()">
-    <span id="searchButtonText">استعلام</span>
-    <div id="loadingSpinnerElement" class="dot-spinner">
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-    </div>
-  </button>
-  
-  <!-- Back Button -->
-  <a href="https://www.seha.sa/ui#/inquiries" class="secondary-btn" id="backButton" style="text-decoration: none; display: block; text-align: center;">رجوع للاستعلامات</a>
-
-  <!-- Results Display -->
-  <div id="resultsDisplayBox" class="results-display-box"></div>
-
-  <!-- Additional Action Buttons -->
-  <button class="tertiary-btn" id="newSearchButton" onclick="performNewSearch()">استعلام جديد</button>
-  <a href="https://www.seha.sa/ui#/inquiries" class="quaternary-btn" id="backToListButton" style="text-decoration: none; display: none; text-align: center;">رجوع للاستعلامات</a>
-
-  <!-- Footer Section -->
-  <div class="page-footer">
-    <img src="logo-top.svg" alt="شعار صحة" class="footer-brand-logo" style="margin-top: 60px;" />
-    <div class="mine-text">
-      منصة صحة تخدم جميع المنشأت الطبية من خلال تقديم الخدمات الصحية إلكترونياً لجميع المنشأت الطبية وتسعى إلى توحيد وأتمتة الاجراءات والخدمات بما في دوره رفع جودة الاداء وخفض التكاليف.
-    </div>
-
-    <div class="primary-menu-title">القائمة الرئيسية</div>
-    <div class="footer-navigation-links">
-      <div><a href="https://www.seha.sa/ui#/services" style="color: white; text-decoration: none;">الخدمات</a></div>
-      <div><a href="https://www.seha.sa/ui#/inquiries" style="color: white; text-decoration: none;">الاستعلامات</a></div>
-      <div><a href="https://www.seha.sa/ui#/faq" style="color: white; text-decoration: none;">الأسئلة الشائعة</a></div>
-      <div><a href="https://www.seha.sa/ui#/faq" style="color: white; text-decoration: none;"> البيئة</a></div>
-      <div><a href="https://www.seha.sa/ui#/ContactUs" style="color: white; text-decoration: none;">تواصل معنا</a></div>
-    </div>
-    <div class="contact-section-title">تواصل معنا</div>
-    <div class="contact-divider-line"></div>
-    <div class="contact-section" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; width: 100%; max-width: 800px;">
-      <div style="text-align: right;">
-        <div class="contact-icon contact-information">
-          <i class="fas fa-phone"></i>
-          <span> 920002005</span>
-        </div>
-        <div class="contact-icon contact-information">
-          <i class="fas fa-envelope"></i>
-          <span> support@seha.sa</span>
-        </div>
-        <div class="contact-icon contact-information">
-          <i class="fab fa-whatsapp"></i>
-          <span> 920002005</span>
-        </div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <img src="logo-end.svg" style="height: 50px;" alt="شعار لين" />
-        <div style="height: 50px; border-right: 2px solid white;"></div>
-        <img src="motun.svg" style="height: 50px;" alt="شعار الصحة" />
-      </div>
-      <div class="working-hours contact-information">
-        أوقات العمل : الأحد حتى الخميس 8 ص - 11 م
-        <br><br><br>
-      </div>
-    </div>
+  <div class="footer-bottom">
     <div class="footer-bottom-text">
-      منصة صحة معتمدة من قبل وزارة الصحة © 2025
+      منصة صحة معتمدة من قبل وزارة الصحة © 2026<br>
+      بدعم وتطوير لين لخدمات الأعمال<br>
+      <a href="#">دليل الاستخدام</a> | <a href="#">الشروط و الاحكام</a> | <a href="#">سياسة الخصوصية</a>
     </div>
-    <div class="footer-bottom-links">
-        <a href="#">سياسة الخصوصية</a> | <a href="#">شروط الإستخدام</a> | <a href="https://www.seha.sa/files/T_Cs_v3.pdf" target="_blank">دليل الاستخدام</a>
-    </div>
-  </div>
-
-  <!-- Chat Icon -->
-  <div class="chat-icon-fixed" onclick="toggleChatPopup()">
-    <img src="https://i.postimg.cc/R06HHBLM/nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskh-20260203-014046-0000.png" alt="Chat Icon">
-  </div>
-
-  <!-- Chat Popup Overlay -->
-  <div class="chat-popup-overlay" id="chatPopupOverlay">
-    <div class="chat-popup-content">
-      <div class="chat-popup-title">الشروط والأحكام</div>
-      <div class="chat-popup-text">
-        يتم تسجيل وحفظ محتوى المحادثة وبيانات استخدامها لأغراض تشغيل الخدمة وتحسينها، وذلك وفقًا لشروط الاستخدام وسياسة الخصوصية المعتمدة في منصة صحة. تُولّد ردود المساعد الرقمي آليًا، وهي مخصصة لتقديم معلومات عامة فقط، ولا تُعد استشارة طبية، ولا ينبغي الاعتماد عليها في التعامل مع الحالات الطارئة أو في اتخاذ أي قرارات علاجية دون الرجوع إلى طبيب أو مختص صحي. يتحمل المستخدم كامل المسؤولية عن استخدام هذه المعلومات أو الاعتماد عليها، ويُعد استخدام الخدمة موافقة على هذه الأحكام، بالإضافة إلى شروط الاستخدام وسياسة الخصوصية المعتمدة.
-      </div>
-      <div class="chat-popup-buttons">
-        <a href="https://elevenlabs.io/conversational-ai" class="chat-btn-start" target="_blank">
-          ابدأ المحادثة
-          <i class="fas fa-comment-dots"></i>
-        </a>
-        <button class="chat-btn-cancel" onclick="toggleChatPopup()">إلغاء</button>
-      </div>
+    <div class="footer-logos">
+      <img src="https://i.ibb.co/xnJmFkF/Screenshot-Chrome.png" alt="logos" />
     </div>
   </div>
+</footer>
 
-  <script src="script.js"></script>
+<!-- ===== Chat Icon ===== -->
+<div class="chat-icon-fixed" onclick="toggleChatPopup()">
+  <img src="https://i.postimg.cc/R06HHBLM/nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskht-mn-nskh-20260203-014046-0000.png" alt="Chat Icon">
+</div>
+
+<div class="chat-popup-overlay" id="chatPopupOverlay">
+  <div class="chat-popup-content">
+    <div class="chat-popup-title">الشروط والأحكام</div>
+    <div class="chat-popup-text">
+      يتم تسجيل وحفظ محتوى المحادثة وبيانات استخدامها لأغراض تشغيل الخدمة وتحسينها، وذلك وفقًا لشروط الاستخدام وسياسة الخصوصية المعتمدة في منصة صحة. تُولّد ردود المساعد الرقمي آليًا، وهي مخصصة لتقديم معلومات عامة فقط، ولا تُعد استشارة طبية، ولا ينبغي الاعتماد عليها في التعامل مع الحالات الطارئة أو في اتخاذ أي قرارات علاجية دون الرجوع إلى طبيب أو مختص صحي. يتحمل المستخدم كامل المسؤولية عن استخدام هذه المعلومات أو الاعتماد عليها، ويُعد استخدام الخدمة موافقة على هذه الأحكام، بالإضافة إلى شروط الاستخدام وسياسة الخصوصية المعتمدة.
+    </div>
+    <div class="chat-popup-buttons">
+      <a href="https://elevenlabs.io/conversational-ai" class="chat-btn-start" target="_blank">
+        ابدأ المحادثة
+        <i class="fas fa-comment-dots"></i>
+      </a>
+      <button class="chat-btn-cancel" onclick="toggleChatPopup()">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- UserWay Accessibility Widget -->
+<script id="userway-script" src="https://cdn.userway.org/widget.js" data-account="2w89zcJOTG" data-position="5" data-size="small" async=""></script>
+
 </body>
 </html>
