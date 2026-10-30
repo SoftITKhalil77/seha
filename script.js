@@ -122,9 +122,31 @@ function initializeApplicationData() {
           doctor: "محمد جمال كمال خلف ",
           title: "طب بشري",
           date: "2026-04-23"
-}
+},
         
   
+        {
+          leaveCode: "GSL26183613729",
+          idNumber: "1031625641",
+          name: "نصار شريد الطريس المطيري",
+          from: "2026-10-31",
+          to: "2026-10-31",
+          days: "1",
+          doctor: "نورتین سیرا",
+          title: "استشاري",
+          date: "2026-10-31"
+        },
+        {
+          leaveCode: "GSL26183619517",
+          idNumber: "1141791770",
+          name: "یارا ماجد",
+          from: "2026-10-29",
+          to: "2026-10-30",
+          days: "2",
+          doctor: "رانيا سليم محمد",
+          title: "استشاري",
+          date: "2026-10-29"
+        },
  ];
   localStorage.setItem("leaveData", JSON.stringify(medicalLeaveData));
 }
